@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<!--Enter Name -->
+<div class="enter-name">
+    <div class="width-default">
+		<h1>PTZ WEB Interface:<h1>
+        <img src="http://admin:admin@192.168.1.51/oneshotimage.jpg" class="bear-avatar">
+    </div>
+	<div class="botao">
+		<p>The date and time on the server is: {{ time }}</p>
+		<button type="button" onclick="alert('UP!')">UP</button>
+		<button type="button" onclick="alert('DOWN!')">DOWN</button>
+		<button type="button" onclick="alert('RIGHT!')">RIGHT</button>
+		<button type="button" onclick="alert('LEFT!')">LEFT</button>
+	</div>
+</div>
+{% endblock %}
