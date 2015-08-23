@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>Admonition Extension &#8212; Python Markdown</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+</head>
+<body>
+
+<div class="related">
+  <h3>Navigation</h3>
+  <ul>
+    <li class="right" style="margin-right: 10px">
+      <a href="../siteindex.html" title="General Index">index</a></li>
+    <li class="right">
+      <a href="code_hilite.html" title="CodeHilite Extension"
+         accesskey="N">next</a> |</li>
+    <li class="right">
+      <a href="smart_strong.html" title="Smart Strong Extension"
+         accesskey="P">previous</a> |</li>
+    <li><img src="../py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="../index.html">Python Markdown v2.6.2 documentation</a> &raquo;</li>
+    <li><a href="index.html">Extensions</a> &raquo;</li>
+<li><a href="admonition.html">Admonition Extension</a> &raquo;</li>
+  </ul>
+</div> <!-- .related -->
+
+<div class="document">
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      <div class="body">
+<h1 id="admonition">Admonition<a class="headerlink" href="#admonition" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The Admonition extension adds <a href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#specific-admonitions">rST-style</a> admonitions to Markdown documents.</p>
+<p>This extension is included in the standard Markdown library.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>Admonitions are created using the following syntax:</p>
+<pre><code>!!! type "optional explicit title within double quotes"
+    Any number of other indented markdown elements.
+
+    This is the second paragraph.
+</code></pre>
+<p><code>type</code> will be used as the CSS class name and as default title. It must be a
+single word. So, for instance:</p>
+<pre><code>!!! note
+    You should note that the title will be automatically capitalized.
+</code></pre>
+<p>will render:</p>
+<pre><code>&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;Note&lt;/p&gt;
+&lt;p&gt;You should note that the title will be automatically capitalized.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Optionally, you can use custom titles. For instance:</p>
+<pre><code>!!! danger "Don't try this at home"
+    ...
+</code></pre>
+<p>will render:</p>
+<pre><code>&lt;div class="admonition danger"&gt;
+&lt;p class="admonition-title"&gt;Don't try this at home&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>If you don&rsquo;t want a title, use a blank string <code>""</code>:</p>
+<pre><code>!!! important ""
+    This is a admonition box without a title.
+</code></pre>
+<p>results in:</p>
+<pre><code>&lt;div class="admonition important"&gt;
+&lt;p&gt;This is a admonition box without a title.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>rST suggests the following <code>types</code>, but you&rsquo;re free to use whatever you want:
+    attention, caution, danger, error, hint, important, note, tip, warning.</p>
+<h2 id="styling">Styling<a class="headerlink" href="#styling" title="Permanent link">&para;</a></h2>
+<p>There is no CSS included as part of this extension. Look up the default
+<a href="http://sphinx.pocoo.org/">Sphinx</a> theme if you need inspiration.</p>
+      </div> <!-- .body -->
+    </div> <!-- .bodywrapper -->
+  </div> <!-- .documentwrapper -->
+
+  <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+    <h3>Table Of Contents</h3>
+    <div class="toc">
+<ul>
+<li><a href="#admonition">Admonition</a><ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#styling">Styling</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+    <h4>Previous topic</h4>
+      <p class="topless"><a href="smart_strong.html"
+         title="previous chapter">Smart Strong Extension</a></p>
+    <h4>Next topic</h4>
+      <p class="topless"><a href="code_hilite.html"
+         title="next chapter">CodeHilite Extension</a></p>
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://github.com/waylan/Python-Markdown/issues"
+             >Report a Bug</a></li>
+      <li><a href="admonition.txt"
+             rel="nofollow">Show Source</a></li>
+    </ul>
+    </div> <!-- .sphinxsidebarwrapper -->
+  </div> <!-- .sphinxsidebar -->
+
+  <div class="clearer"></div>
+</div> <!-- .document -->
+
+<div class="related">
+  <h3>Navigation</h3>
+  <ul>
+    <li class="right" style="margin-right: 10px">
+      <a href="../siteindex.html" title="General Index">index</a></li>
+    <li class="right">
+      <a href="code_hilite.html" title="CodeHilite Extension"
+         accesskey="N">next</a> |</li>
+    <li class="right">
+      <a href="smart_strong.html" title="Smart Strong Extension"
+         accesskey="P">previous</a> |</li>
+    <li><img src="../py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="../index.html">Python Markdown v2.6.2 documentation</a> &raquo;</li>
+    <li><a href="index.html">Extensions</a> &raquo;</li>
+<li><a href="admonition.html">Admonition Extension</a> &raquo;</li>
+  </ul>
+</div> <!-- .related -->
+
+<div class="footer">&copy; 2010-2012 Python Markdown Project</div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>SmartyPants Extension &#8212; Python Markdown</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+</head>
+<body>
+
+<div class="related">
+  <h3>Navigation</h3>
+  <ul>
+    <li class="right" style="margin-right: 10px">
+      <a href="../siteindex.html" title="General Index">index</a></li>
+    <li class="right">
+      <a href="toc.html" title="Table of Contents Extension"
+         accesskey="N">next</a> |</li>
+    <li class="right">
+      <a href="sane_lists.html" title="Sane Lists Extension"
+         accesskey="P">previous</a> |</li>
+    <li><img src="../py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="../index.html">Python Markdown v2.6.2 documentation</a> &raquo;</li>
+    <li><a href="index.html">Extensions</a> &raquo;</li>
+<li><a href="smarty.html">SmartyPants Extension</a> &raquo;</li>
+  </ul>
+</div> <!-- .related -->
+
+<div class="document">
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      <div class="body">
+<h1 id="smartypants">SmartyPants<a class="headerlink" href="#smartypants" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The SmartyPants extension converts ASCII dashes, quotes and ellipses to
+their HTML entity equivalents.</p>
+<table>
+<thead>
+<tr>
+<th>ASCII symbol</th>
+<th>Replacements</th>
+<th>HTML Entities</th>
+<th>Substitution Keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'</code></td>
+<td>&lsquo; &rsquo;</td>
+<td><code>&amp;lsquo;</code> <code>&amp;rsquo;</code></td>
+<td><code>'left-single-quote'</code>, <code>'right-single-quote'</code></td>
+</tr>
+<tr>
+<td><code>"</code></td>
+<td>&ldquo; &rdquo;</td>
+<td><code>&amp;ldquo;</code> <code>&amp;rdquo;</code></td>
+<td><code>'left-double-quote'</code>, <code>'right-double-quote'</code></td>
+</tr>
+<tr>
+<td><code>&lt;&lt; &gt;&gt;</code></td>
+<td>&laquo; &raquo;</td>
+<td><code>&amp;laquo;</code> <code>&amp;raquo;</code></td>
+<td><code>'left-angle-quote'</code>, <code>'right-angle-quote'</code></td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td>&hellip;</td>
+<td><code>&amp;hellip;</code></td>
+<td><code>'ellipsis'</code></td>
+</tr>
+<tr>
+<td><code>--</code></td>
+<td>&ndash;</td>
+<td><code>&amp;ndash;</code></td>
+<td><code>'ndash'</code></td>
+</tr>
+<tr>
+<td><code>---</code></td>
+<td>&mdash;</td>
+<td><code>&amp;mdash;</code></td>
+<td><code>'mdash'</code></td>
+</tr>
+</tbody>
+</table>
+<p>Using the configuration option &lsquo;substitutions&rsquo; you can overwrite the
+default substitutions. Just pass a dict mapping (a subset of) the 
+keys to the substitution strings.</p>
+<p>For example, one might use the following configuration to get correct quotes for 
+the German language:</p>
+<pre><code>extension_configs = {
+    'markdown.extensions.smarty': {
+        'substitutions': {
+            'left-single-quote': '&amp;sbquo;', # sb is not a typo!
+            'right-single-quote': '&amp;lsquo;',
+            'left-double-quote': '&amp;bdquo;',
+            'right-double-quote': '&amp;ldquo;'
+        }
+    }
+}
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This extension re-implements the Python <a href="http://pythonhosted.org/smartypants/">SmartyPants</a> 
+library by integrating it into the markdown parser.
+While this does not provide any additional features,
+it does offer a few advantages. Notably, it will not 
+try to work on highlighted code blocks (using the 
+<a href="code_hilite.html">CodeHilite</a> Extension) like the third party library 
+has been known to do.</p>
+</div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>See <a href="index.html">Extensions</a> for general extension usage, specify 
+<code>markdown.extensions.smarty</code> as the name of the extension.</p>
+<p>See the <a href="../reference.html#extensions">Library Reference</a> for information about
+configuring extensions.</p>
+<p>The following options are provided to configure the output:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>smart_dashes</code></td>
+<td><code>True</code></td>
+<td>whether to convert dashes</td>
+</tr>
+<tr>
+<td><code>smart_quotes</code></td>
+<td><code>True</code></td>
+<td>whether to convert straight quotes</td>
+</tr>
+<tr>
+<td><code>smart_angled_quotes</code></td>
+<td><code>False</code></td>
+<td>whether to convert angled quotes</td>
+</tr>
+<tr>
+<td><code>smart_ellipses</code></td>
+<td><code>True</code></td>
+<td>whether to convert ellipses</td>
+</tr>
+<tr>
+<td><code>substitutions</code></td>
+<td><code>{}</code></td>
+<td>overwrite default substitutions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<p>SmartyPants extension is based on the original SmartyPants implementation
+by John Gruber. Please read it&rsquo;s <a href="http://daringfireball.net/projects/smartypants/">documentation</a> for details.</p>
+      </div> <!-- .body -->
+    </div> <!-- .bodywrapper -->
+  </div> <!-- .documentwrapper -->
+
+  <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+    <h3>Table Of Contents</h3>
+    <div class="toc">
+<ul>
+<li><a href="#smartypants">SmartyPants</a><ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#further-reading">Further reading</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+    <h4>Previous topic</h4>
+      <p class="topless"><a href="sane_lists.html"
+         title="previous chapter">Sane Lists Extension</a></p>
+    <h4>Next topic</h4>
+      <p class="topless"><a href="toc.html"
+         title="next chapter">Table of Contents Extension</a></p>
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://github.com/waylan/Python-Markdown/issues"
+             >Report a Bug</a></li>
+      <li><a href="smarty.txt"
+             rel="nofollow">Show Source</a></li>
+    </ul>
+    </div> <!-- .sphinxsidebarwrapper -->
+  </div> <!-- .sphinxsidebar -->
+
+  <div class="clearer"></div>
+</div> <!-- .document -->
+
+<div class="related">
+  <h3>Navigation</h3>
+  <ul>
+    <li class="right" style="margin-right: 10px">
+      <a href="../siteindex.html" title="General Index">index</a></li>
+    <li class="right">
+      <a href="toc.html" title="Table of Contents Extension"
+         accesskey="N">next</a> |</li>
+    <li class="right">
+      <a href="sane_lists.html" title="Sane Lists Extension"
+         accesskey="P">previous</a> |</li>
+    <li><img src="../py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="../index.html">Python Markdown v2.6.2 documentation</a> &raquo;</li>
+    <li><a href="index.html">Extensions</a> &raquo;</li>
+<li><a href="smarty.html">SmartyPants Extension</a> &raquo;</li>
+  </ul>
+</div> <!-- .related -->
+
+<div class="footer">&copy; 2010-2012 Python Markdown Project</div>
+</body>
+</html>
