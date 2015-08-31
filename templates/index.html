@@ -4,14 +4,16 @@
 <div class="enter-name">
     <div class="width-default">
 		<h1>PTZ WEB Interface:<h1>
-        <img src="http://admin:admin@192.168.1.51/oneshotimage.jpg" class="bear-avatar">
+        <img src="http://192.168.1.51/mjpeg" class="bear-avatar">
     </div>
 	<div class="botao">
 		<p>The date and time on the server is: {{ time }}</p>
-		<button type="button" onclick="alert('UP!')">UP</button>
-		<button type="button" onclick="alert('DOWN!')">DOWN</button>
-		<button type="button" onclick="alert('RIGHT!')">RIGHT</button>
-		<button type="button" onclick="alert('LEFT!')">LEFT</button>
+        <form action="/ptz_control" method="post">
+		<button type="submit" name="action" value="up"> UP </button>
+		<button type="submit" name="action" value="down" >DOWN</button>
+		<button type="submit" name="action" value="right" >RIGHT</button>
+		<button type="submit" name="action" value="left" >LEFT</button>
+        </form>
 	</div>
 </div>
 {% endblock %}
